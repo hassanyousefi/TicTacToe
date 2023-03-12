@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<h3 class="game-name">Tic Tac Toe</h3>
+<div class="game-container">
+
+    @for (var row = 0; row < 3; row++)
+    {
+        var tempRow = row;
+        @for (var col = 0; col < 3; col++)
+        {
+            var tempCol = col;
+            <div class="game-item" @onclick=@(() => SelectItem(tempRow, tempCol) )>
+                <span>@(items[row, col] == ItemStatus.FirstPlayer ? "X" : items[row, col] == ItemStatus.SecondPlayer ? "O" : "")</span>
+            </div>
+        }
+    }
+</div>
+
+@if (winner != GameStatus.NotFinish)
+{
+    <div class="result-shadow"></div>
+    <div class="result-text">
+        Result: @(winner == GameStatus.FirstWin ? "X win" : winner == GameStatus.SecondWin ? "O win" : "Draw")
+    </div>
+}
