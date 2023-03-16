@@ -39,7 +39,7 @@
 
         private void RandomSelectItem()
         {
-            Random rnd = new Random();
+            Random rnd = new();
             var row = rnd.Next(0, 3);
             var col = rnd.Next(0, 3);
 
